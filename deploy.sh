@@ -11,7 +11,7 @@ if [ $# -eq 0 ]
     echo
     echo "Examples:"
     echo "Run the version of the console as is in the container in a project called myproject: ./deploy.sh myproject"
-    echo "Checkout the 4.4 version of it, build and run it in a project caled myproject: ./deploy.sh myproject \"git checkout -b origin/release-4.4\""
+    echo "Checkout the 4.4 version of it, build and run it in a project caled myproject: ./deploy.sh myproject \"git fetch origin && git reset --hard origin/release-4.4\""
     echo "Checkout a specific github patch and run in in a project called myproject: ./deploy.sh myproject \"git fetch origin && git reset --hard origin/master && git fetch origin pull/5531/head:B && git checkout B\""
     echo "Please note that the content of the command is just a shell command. You can prepare the workspace using any shell commands you need."
     exit
