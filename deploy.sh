@@ -64,7 +64,7 @@ metadata:
 spec:
   ports:
     - protocol: TCP
-      port: 80
+      port: 9000
       targetPort: 9000
   selector:
     app: $project
@@ -73,11 +73,13 @@ spec:
 EOF
 
 echo "exposing route"
-oc expose svc/$project
+oc expose svc/$project --port=9000 --generator="route/v1"
 
 echo
-echo "Seems its done. Once the bridge process inside of the container starts, you should be able to access the console on the following address:"
-echo "http://$(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1)"
+echo "Seems its done. Once the bridge process inside of the container starts, you should be able to access the console by:
+echo "adding 10.46.26.15 $(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1) to /etc/hosts"
+And than access it on the following address:"
+echo "http://$(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1):9000"
 echo
 echo "Alternatively, you can expose it using port forwarding:"
 echo "oc port-forward pods/$project 8080:9000"
