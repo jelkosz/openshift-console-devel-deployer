@@ -76,9 +76,13 @@ echo "exposing route"
 oc expose svc/$project --port=9000 --generator="route/v1"
 
 echo
-echo "Seems its done. Once the bridge process inside of the container starts, you should be able to access the console on the following address:"
-echo "http://$(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1)"
+echo "Seems its done. Once the bridge process inside of the container starts, you should be able to access the console by adding:"
+echo "10.46.26.15 $(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1)"
+echo "to /etc/hosts"
+echo "And than access it on the following address:"
+echo "http://$(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1):9000"
 echo
 echo "Alternatively, you can expose it using port forwarding:"
 echo "oc port-forward pods/$project 8080:9000"
 echo "and access it on http://localhost:8080"
+
