@@ -77,7 +77,7 @@ oc expose svc/$project --port=9000 --generator="route/v1"
 
 echo
 echo "Seems its done. Once the bridge process inside of the container starts, you should be able to access the console by adding:"
-echo "10.46.26.15 $(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1)"
+echo "10.46.26.28 $(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1)"
 echo "to /etc/hosts"
 echo "And than access it on the following address:"
 echo "http://$(oc get routes -o=custom-columns=HOSTNAME:.spec.host | tail -1):9000"
