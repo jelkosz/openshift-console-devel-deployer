@@ -18,11 +18,11 @@ if [ $# -eq 0 ]
   else if [ $# -eq 1 ]
     then
       project=$1
-      command="cd console && source ./contrib/oc-environment.sh && ./bin/bridge"
+      command="cd console ; source ./contrib/oc-environment.sh ; ./bin/bridge"
   else if [ $# -eq 2 ]
     then
       project=$1
-      command="cd console && "$2" && ./build.sh && source ./contrib/oc-environment.sh && ./bin/bridge"
+      command="cd console ; "$2" ; ./build.sh ; source ./contrib/oc-environment.sh ; ./bin/bridge"
     fi
     fi
 fi
