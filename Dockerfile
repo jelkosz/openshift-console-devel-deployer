@@ -10,7 +10,7 @@ RUN yum update -y && yum install -y git wget gcc
 
 ##################### nodejs #####################
 
-RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash -
 
 RUN yum install -y nodejs
 
